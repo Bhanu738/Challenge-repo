@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Color Picker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #333;
+            transition: background-color 0.6s ease;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: white;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            color: white;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        .happy { background-color: #FFD700; }
+        .calm { background-color: #1E90FF; }
+        .energetic { background-color: #FF4500; }
+        .relaxed { background-color: #32CD32; }
+
+        .poster {
+            max-width: 500px;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .description {
+            max-width: 700px;
+            color: white;
+            margin: 20px;
+            font-size: 1rem;
+            text-align: center;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Poster Image -->
+    <img src="C:\Users\P Venkata Ramana\Downloads\Poster.png" alt="Mood Color Picker Poster" class="poster">
+
+    <!-- Description -->
+    <div class="description">
+        <h1>Welcome to Mood Color Picker</h1>
+        <p>
+            The Mood Color Picker is an interactive web application that lets you match your surroundings 
+            with your emotions. Whether you’re feeling happy, calm, energetic, or relaxed, simply click a 
+            button and watch your screen transform. Each mood comes with a unique background color and 
+            an inspiring quote to match your vibe.
+        </p>
+    </div>
+
+    <!-- App UI -->
+    <h1>Pick Your Mood</h1>
+    <p id="quote">How are you feeling today?</p>
+
+    <div class="buttons">
+        <button class="happy" onclick="setMood('happy')">😊 Happy</button>
+        <button class="calm" onclick="setMood('calm')">🌊 Calm</button>
+        <button class="energetic" onclick="setMood('energetic')">⚡ Energetic</button>
+        <button class="relaxed" onclick="setMood('relaxed')">🛋 Relaxed</button>
+    </div>
+
+    <script>
+        function setMood(mood) {
+            const body = document.body;
+            const quote = document.getElementById("quote");
+
+            const moods = {
+                happy: {
+                    color: "#FFD700",
+                    text: "Happiness is contagious — spread it!"
+                },
+                calm: {
+                    color: "#1E90FF",
+                    text: "Breathe in, breathe out. Peace is within."
+                },
+                energetic: {
+                    color: "#FF4500",
+                    text: "Go conquer the day with your energy!"
+                },
+                relaxed: {
+                    color: "#32CD32",
+                    text: "Let go, unwind, and just be."
+                }
+            };
+
+            body.style.backgroundColor = moods[mood].color;
+            quote.textContent = moods[mood].text;
+        }
+    </script>
+
+</body>
+</html>
